@@ -1,8 +1,8 @@
 ﻿using System.IO;
 
-namespace ProcessingServer.Helpers
+namespace Core.Helpers
 {
-    static class DirectoryHelper
+    public static class DirectoryHelper
     {
         public static void EnsureDirectoryExists(string path)
         {

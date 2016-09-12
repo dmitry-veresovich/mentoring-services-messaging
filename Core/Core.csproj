@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DirectoryHelper.cs" />
     <Compile Include="Helpers\QueueHelper.cs" />
     <Compile Include="Messages\IMessagesService.cs" />
     <Compile Include="Messages\BytesMessagesService.cs" />

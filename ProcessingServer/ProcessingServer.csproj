@@ -84,7 +84,6 @@
     <Compile Include="Entities\ImageFile.cs" />
     <Compile Include="Configuration\Factory.cs" />
     <Compile Include="Helpers\Guard.cs" />
-    <Compile Include="Helpers\DirectoryHelper.cs" />
     <Compile Include="Configuration\NLogFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

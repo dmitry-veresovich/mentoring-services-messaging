@@ -1,4 +1,5 @@
-﻿using Topshelf;
+﻿using CentralServer.Configuration;
+using Topshelf;
 
 namespace CentralServer
 {
@@ -6,7 +7,7 @@ namespace CentralServer
     {
         static void Main(string[] args)
         {
-            HostFactory.Run(configurator => configurator.Service<Server>());
+            HostFactory.Run(configurator => configurator.Service<Server>(Factory.Resolve<Server>));
         }
     }
 }

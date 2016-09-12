@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using Core.Helpers;
 using ProcessingServer.Configuration;
-using ProcessingServer.Helpers;
 using ProcessingServer.Services;
 using Topshelf;
 
