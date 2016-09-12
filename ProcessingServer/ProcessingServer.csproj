@@ -100,6 +100,7 @@
     <Compile Include="Services\IPdfService.cs" />
     <Compile Include="Services\IProcessManager.cs" />
     <Compile Include="Services\ISettingsUpdateListener.cs" />
+    <Compile Include="Services\MessagingImagePersistenceService.cs" />
     <Compile Include="Services\PdfService.cs" />
     <Compile Include="Services\ProcessManager.cs" />
     <Compile Include="Services\SettingsUpdateListener.cs" />

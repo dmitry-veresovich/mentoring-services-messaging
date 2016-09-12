@@ -2,7 +2,7 @@
 
 namespace ProcessingServer.Services
 {
-    interface IImagePersistenceService
+    internal interface IImagePersistenceService
     {
         void Persist(PdfDocumentRenderer renderer);
     }

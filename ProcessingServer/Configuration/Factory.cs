@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Reflection;
 using Autofac;
+using Core.Messages;
+using ProcessingServer.Services;
 
 namespace ProcessingServer.Configuration
 {
@@ -17,7 +19,9 @@ namespace ProcessingServer.Configuration
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<Server>().AsSelf();
+            builder.RegisterType<BytesMessagesService>().As<IBytesMessagesService>();
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                .Except<FileImagePersistenceService>()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 

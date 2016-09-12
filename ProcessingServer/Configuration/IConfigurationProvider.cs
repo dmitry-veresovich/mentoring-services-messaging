@@ -13,5 +13,6 @@ namespace ProcessingServer.Configuration
         long ObserveInterval { get; }
         int MaxAttempts { get; }
         string ProcessingServerQueue { get; }
+        string CentralServerQueue { get; }
     }
 }

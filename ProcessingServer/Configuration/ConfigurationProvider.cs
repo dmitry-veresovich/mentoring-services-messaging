@@ -14,5 +14,6 @@ namespace ProcessingServer.Configuration
         public long ObserveInterval => 5000;
         public int MaxAttempts => 3;
         public string ProcessingServerQueue => @".\private$\processingserver";
+        public string CentralServerQueue => @".\private$\centralserver";
     }
 }

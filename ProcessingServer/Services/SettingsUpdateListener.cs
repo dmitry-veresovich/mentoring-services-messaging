@@ -9,7 +9,8 @@ namespace ProcessingServer.Services
 
         public void Listen()
         {
-            _thread= new Thread(ListenQueue);
+            _thread = new Thread(ListenQueue);
+            _thread.Start();
         }
 
         private void ListenQueue()
