@@ -1,9 +1,9 @@
 ﻿using System.Threading;
-using Services.Helpers;
-using Services.Services;
+using ProcessingServer.Helpers;
+using ProcessingServer.Services;
 using Topshelf;
 
-namespace Services
+namespace ProcessingServer
 {
     class ServiceController : ServiceControl
     {

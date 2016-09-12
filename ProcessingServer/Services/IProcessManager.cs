@@ -1,4 +1,4 @@
-﻿namespace Services.Services
+﻿namespace ProcessingServer.Services
 {
     interface IProcessManager
     {

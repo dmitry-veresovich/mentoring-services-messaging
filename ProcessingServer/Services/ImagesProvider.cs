@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Services.Entities;
+using ProcessingServer.Entities;
 
-namespace Services.Services
+namespace ProcessingServer.Services
 {
     class ImagesProvider : IImagesProvider
     {

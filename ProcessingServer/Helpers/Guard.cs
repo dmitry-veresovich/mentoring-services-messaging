@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Services
+namespace ProcessingServer.Helpers
 {
     static class Guard
     {

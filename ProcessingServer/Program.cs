@@ -1,6 +1,6 @@
 ﻿using Topshelf;
 
-namespace Services
+namespace ProcessingServer
 {
     class Program
     {

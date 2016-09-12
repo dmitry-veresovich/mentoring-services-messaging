@@ -2,7 +2,7 @@
 using System.Reflection;
 using Autofac;
 
-namespace Services
+namespace ProcessingServer
 {
     static class Factory
     {

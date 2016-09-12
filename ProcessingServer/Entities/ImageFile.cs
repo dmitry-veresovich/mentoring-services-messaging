@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Services.Entities
+namespace ProcessingServer.Entities
 {
     class ImageFile
     {

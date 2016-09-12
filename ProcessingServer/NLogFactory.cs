@@ -4,7 +4,7 @@ using NLog;
 using NLog.Config;
 using NLog.Targets;
 
-namespace Services
+namespace ProcessingServer
 {
     static class NLogFactory
     {

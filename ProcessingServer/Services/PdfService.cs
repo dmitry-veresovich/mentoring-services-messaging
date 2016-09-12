@@ -2,7 +2,7 @@
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
 
-namespace Services.Services
+namespace ProcessingServer.Services
 {
     class PdfService : IPdfService
     {

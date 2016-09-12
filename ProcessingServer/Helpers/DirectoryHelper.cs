@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Services.Helpers
+namespace ProcessingServer.Helpers
 {
     static class DirectoryHelper
     {

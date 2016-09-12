@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Services.Services
+namespace ProcessingServer.Services
 {
     public interface IConfigurationProvider
     {
