@@ -82,18 +82,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ImageFile.cs" />
-    <Compile Include="Factory.cs" />
+    <Compile Include="Configuration\Factory.cs" />
     <Compile Include="Helpers\Guard.cs" />
     <Compile Include="Helpers\DirectoryHelper.cs" />
-    <Compile Include="NLogFactory.cs" />
+    <Compile Include="Configuration\NLogFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceController.cs" />
-    <Compile Include="Services\ConfigurationProvider.cs" />
-    <Compile Include="Services\IConfigurationProvider.cs" />
+    <Compile Include="Configuration\ConfigurationProvider.cs" />
+    <Compile Include="Configuration\IConfigurationProvider.cs" />
     <Compile Include="Services\IImagePersistenceService.cs" />
     <Compile Include="Services\FileImagePersistenceService.cs" />
+    <Compile Include="Services\IImagesMoverService.cs" />
     <Compile Include="Services\IImagesProvider.cs" />
+    <Compile Include="Services\ImagesMoverService.cs" />
     <Compile Include="Services\ImagesProvider.cs" />
     <Compile Include="Services\IPdfService.cs" />
     <Compile Include="Services\IProcessManager.cs" />

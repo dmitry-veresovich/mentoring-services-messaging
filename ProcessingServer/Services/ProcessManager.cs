@@ -1,28 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using ProcessingServer.Entities;
 
 namespace ProcessingServer.Services
 {
-    class ProcessManager : IProcessManager
+    internal class ProcessManager : IProcessManager
     {
         private readonly IImagesProvider _imagesProvider;
         private readonly IPdfService _pdfService;
-        private readonly IConfigurationProvider _configurationProvider;
+        private readonly IImagesMoverService _imagesMoverService;
         private readonly object _lock = new object();
         private bool _isProcessing;
 
         public ProcessManager(
             IImagesProvider imagesProvider,
             IPdfService pdfService,
-            IConfigurationProvider configurationProvider)
+            IImagesMoverService imagesMoverService)
         {
             _imagesProvider = imagesProvider;
             _pdfService = pdfService;
-            _configurationProvider = configurationProvider;
+            _imagesMoverService = imagesMoverService;
         }
 
         public void Process()
@@ -31,7 +28,7 @@ namespace ProcessingServer.Services
 
             var images = _imagesProvider.GetImages().OrderBy(file => file.Number).ToList();
 
-            MoveImages(images);
+            _imagesMoverService.Move(images);
 
             if (images.Count > 0)
             {
@@ -46,45 +43,12 @@ namespace ProcessingServer.Services
                     prevNum = imageFile.Number;
 
                     _pdfService.AddPage(imageFile.FullPath);
-                    
                 }
+
                 _pdfService.SaveFile();
             }
 
             EndProcess();
-        }
-
-        private void MoveImages(IEnumerable<ImageFile> images)
-        {
-            var outDir = Path.Combine(_configurationProvider.CurrentDirectory, _configurationProvider.OutDirectory);
-            foreach (var imageFile in images)
-            {
-                int attempt = 0;
-                while (attempt++ < _configurationProvider.MaxAttempts)
-                {
-                    try
-                    {
-                        var newPath = Path.Combine(outDir, imageFile.FullName);
-                        File.Move(imageFile.FullPath, newPath);
-                        imageFile.FullPath = newPath;
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.WriteLine(e);
-                        throw;
-                    }
-                }
-                
-            }
-        }
-
-        private void EndProcess()
-        {
-            lock (_lock)
-            {
-                _isProcessing = false;
-            }
-            Debug.WriteLine($"{DateTime.Now} - Ended");
         }
 
         private bool BeginProcess()
@@ -98,6 +62,15 @@ namespace ProcessingServer.Services
             }
             Debug.WriteLine($"{DateTime.Now} - Started");
             return true;
+        }
+
+        private void EndProcess()
+        {
+            lock (_lock)
+            {
+                _isProcessing = false;
+            }
+            Debug.WriteLine($"{DateTime.Now} - Ended");
         }
 
         public void Stop()

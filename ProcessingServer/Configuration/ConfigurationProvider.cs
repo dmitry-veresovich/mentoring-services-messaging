@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProcessingServer.Services
+namespace ProcessingServer.Configuration
 {
     internal class ConfigurationProvider : IConfigurationProvider
     {

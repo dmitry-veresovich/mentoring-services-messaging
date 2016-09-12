@@ -1,4 +1,5 @@
-﻿using Topshelf;
+﻿using ProcessingServer.Configuration;
+using Topshelf;
 
 namespace ProcessingServer
 {
@@ -7,7 +8,7 @@ namespace ProcessingServer
         static void Main(string[] args)
         {
             HostFactory.Run(configurator => configurator
-                    .Service(Factory.Resolve<ServiceController>)
+                    .Service(Factory.Resolve<Server>)
                     .UseNLog(NLogFactory.CreateAndConfigure()));
         }
     }

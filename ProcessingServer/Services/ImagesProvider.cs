@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ProcessingServer.Configuration;
 using ProcessingServer.Entities;
 
 namespace ProcessingServer.Services

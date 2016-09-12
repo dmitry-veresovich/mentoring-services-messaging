@@ -1,17 +1,17 @@
 ﻿using System.Threading;
+using ProcessingServer.Configuration;
 using ProcessingServer.Helpers;
 using ProcessingServer.Services;
 using Topshelf;
 
 namespace ProcessingServer
 {
-    class ServiceController : ServiceControl
+    internal class Server : ServiceControl
     {
         private readonly IProcessManager _processManager;
         private readonly IConfigurationProvider _configurationProvider;
         private readonly Timer _timer;
-
-        public ServiceController(
+        public Server(
             IProcessManager processManager,
             IConfigurationProvider configurationProvider)
         {

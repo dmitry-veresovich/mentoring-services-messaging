@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using MigraDoc.Rendering;
+using ProcessingServer.Configuration;
 
 namespace ProcessingServer.Services
 {

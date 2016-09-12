@@ -2,7 +2,7 @@
 using System.Reflection;
 using Autofac;
 
-namespace ProcessingServer
+namespace ProcessingServer.Configuration
 {
     static class Factory
     {
@@ -16,7 +16,7 @@ namespace ProcessingServer
         private static IContainer Init()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<ServiceController>().AsSelf();
+            builder.RegisterType<Server>().AsSelf();
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
