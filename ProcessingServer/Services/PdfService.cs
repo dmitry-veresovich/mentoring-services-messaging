@@ -1,20 +1,19 @@
-﻿using System.IO;
-using MigraDoc.DocumentObjectModel;
+﻿using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
 
 namespace ProcessingServer.Services
 {
     class PdfService : IPdfService
     {
-        private readonly IConfigurationProvider _configurationProvider;
+        private readonly IImagePersistenceService _imagePersistenceService;
 
         private Document _document;
         private Section _section;
         private int _pageNumber;
 
-        public PdfService(IConfigurationProvider configurationProvider)
+        public PdfService(IImagePersistenceService imagePersistenceService)
         {
-            _configurationProvider = configurationProvider;
+            _imagePersistenceService = imagePersistenceService;
         }
 
         public void NewFile()
@@ -47,11 +46,9 @@ namespace ProcessingServer.Services
             if (_document == null)
                 return;
 
-            var render = new PdfDocumentRenderer {Document = _document};
-            render.RenderDocument();
-            var name = Path.ChangeExtension(Path.GetRandomFileName(), "pdf");
-            var path = Path.Combine(_configurationProvider.OutDirectory, name);
-            render.Save(path);
+            var renderer = new PdfDocumentRenderer {Document = _document};
+            renderer.RenderDocument();
+            _imagePersistenceService.Persist(renderer);
 
             _document = null;
         }

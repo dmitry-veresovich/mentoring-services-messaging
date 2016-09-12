@@ -64,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,6 +91,8 @@
     <Compile Include="ServiceController.cs" />
     <Compile Include="Services\ConfigurationProvider.cs" />
     <Compile Include="Services\IConfigurationProvider.cs" />
+    <Compile Include="Services\IImagePersistenceService.cs" />
+    <Compile Include="Services\FileImagePersistenceService.cs" />
     <Compile Include="Services\IImagesProvider.cs" />
     <Compile Include="Services\ImagesProvider.cs" />
     <Compile Include="Services\IPdfService.cs" />
@@ -100,6 +103,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{1eb9f28c-23cd-4f3f-9c08-0a5e2305bcfd}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CentralServer.Core;
+using Topshelf;
 
 namespace CentralServer
 {
@@ -10,6 +7,7 @@ namespace CentralServer
     {
         static void Main(string[] args)
         {
+            HostFactory.Run(configurator => configurator.Service<Server>());
         }
     }
 }
