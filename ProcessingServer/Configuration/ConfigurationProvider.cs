@@ -13,5 +13,6 @@ namespace ProcessingServer.Configuration
         public IEnumerable<string> FileExtensions => new [] { "jpg" };
         public long ObserveInterval => 5000;
         public int MaxAttempts => 3;
+        public string ProcessingServerQueue => @".\private$\processingserver";
     }
 }

@@ -12,5 +12,6 @@ namespace ProcessingServer.Configuration
         IEnumerable<string> FileExtensions { get; }
         long ObserveInterval { get; }
         int MaxAttempts { get; }
+        string ProcessingServerQueue { get; }
     }
 }

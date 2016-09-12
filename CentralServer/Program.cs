@@ -1,5 +1,4 @@
-﻿using CentralServer.Core;
-using Topshelf;
+﻿using Topshelf;
 
 namespace CentralServer
 {

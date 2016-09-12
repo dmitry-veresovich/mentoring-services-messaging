@@ -2,7 +2,7 @@
 
 namespace Core.Helpers
 {
-    public static class QueueHelpers
+    public static class QueueHelper
     {
         public static void EnsureQueueExists(string path)
         {

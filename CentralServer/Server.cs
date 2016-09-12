@@ -1,15 +1,16 @@
-﻿using System.Messaging;
+﻿using System;
+using System.Messaging;
 using System.Threading;
 using Core.Helpers;
 using Topshelf;
 
-namespace CentralServer.Core
+namespace CentralServer
 {
     class Server : ServiceControl
     {
         private Thread _thread;
         private bool _isStopping;
-        private const string CentralServerQueue = @".\private$\CentralServer";
+        private const string CentralServerQueue = @".\private$\centralserver";
 
         public bool Start(HostControl hostControl)
         {
@@ -21,7 +22,7 @@ namespace CentralServer.Core
 
         private void ListenQueue()
         {
-            QueueHelpers.EnsureQueueExists(CentralServerQueue);
+            QueueHelper.EnsureQueueExists(CentralServerQueue);
 
             using (var queue = new MessageQueue(CentralServerQueue, true))
             {
@@ -29,9 +30,12 @@ namespace CentralServer.Core
 
                 while (!_isStopping)
                 {
-                    var message = queue.Receive();
-
-
+                    try
+                    {
+                        var message = queue.Receive(TimeSpan.FromSeconds(5));
+                        
+                    }
+                    catch (MessageQueueException) { }
                 }
             }
         }
