@@ -60,13 +60,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Factory.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ISettingsUpdateNotifyService.cs" />
+    <Compile Include="Services\IUpdateStatusLogService.cs" />
+    <Compile Include="Services\SettingsUpdateNotifyService.cs" />
+    <Compile Include="Services\UpdateStatusLogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{1EB9F28C-23CD-4F3F-9C08-0A5E2305BCFD}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

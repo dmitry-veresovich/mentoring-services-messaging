@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Core.Data;
 
 namespace ProcessingServer.Configuration
 {
@@ -14,5 +16,10 @@ namespace ProcessingServer.Configuration
         int MaxAttempts { get; }
         string ProcessingServerQueue { get; }
         string CentralServerQueue { get; }
+        string ControlServerQueue { get; }
+
+        event EventHandler ObserveIntervalChanged;
+
+        void UpdateConfiguration(ProcessingConfiguration processingConfiguration);
     }
 }

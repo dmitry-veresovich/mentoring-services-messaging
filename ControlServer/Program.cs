@@ -1,4 +1,5 @@
-﻿using Topshelf;
+﻿using ControlServer.Configuration;
+using Topshelf;
 
 namespace ControlServer
 {
@@ -6,7 +7,7 @@ namespace ControlServer
     {
         static void Main(string[] args)
         {
-            HostFactory.Run(configurator => configurator.Service<Server>());
+            HostFactory.Run(configurator => configurator.Service<Server>(Factory.Resolve<Server>));
         }
     }
 }

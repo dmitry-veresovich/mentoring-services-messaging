@@ -18,9 +18,6 @@ namespace ProcessingServer.Services
 
         public void NewFile()
         {
-            if (_document != null)
-                SaveFile();
-
             _document = new Document();
             _section = _document.AddSection();
             _pageNumber = 1;

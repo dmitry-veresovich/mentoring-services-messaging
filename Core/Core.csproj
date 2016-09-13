@@ -45,7 +45,11 @@
     <Compile Include="Helpers\QueueHelper.cs" />
     <Compile Include="Messages\IMessagesService.cs" />
     <Compile Include="Messages\BytesMessagesService.cs" />
+    <Compile Include="Data\ProcessingConfiguration.cs" />
     <Compile Include="Messages\SplitMessage.cs" />
+    <Compile Include="Messages\UpdateConfigurationMessage.cs" />
+    <Compile Include="Messages\UpdateStatusMessage.cs" />
+    <Compile Include="Messages\StatusType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

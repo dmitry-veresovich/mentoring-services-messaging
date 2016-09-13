@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Core.Helpers;
 using ProcessingServer.Configuration;
 using ProcessingServer.Services;
@@ -22,6 +23,10 @@ namespace ProcessingServer
             _configurationProvider = configurationProvider;
             _settingsUpdateListener = settingsUpdateListener;
             _timer = new Timer(state => _processManager.Process());
+            _configurationProvider.ObserveIntervalChanged += delegate
+            {
+                _timer.Change(0, _configurationProvider.ObserveInterval);
+            };
         }
 
         public bool Start(HostControl hostControl)
