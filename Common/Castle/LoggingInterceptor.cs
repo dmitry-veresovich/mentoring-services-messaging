@@ -9,7 +9,7 @@ namespace Common.Castle
 {
     public class LoggingInterceptor : IInterceptor
     {
-        private static object sync = new object();
+        private static readonly object sync = new object();
         private readonly IMethodExecutionLogger _methodExecutionLogger;
 
         public LoggingInterceptor(IMethodExecutionLogger methodExecutionLogger)

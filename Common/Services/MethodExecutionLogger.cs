@@ -9,6 +9,7 @@ using Common.Models;
 
 namespace Common.Services
 {
+    [Serializable]
     public class MethodExecutionLogger : IMethodExecutionLogger
     {
         private const string LogFile = "interceptorLog.xml";
@@ -72,9 +73,9 @@ namespace Common.Services
 
                             parameterValueNode.InnerXml = XDocument.Load(stream).Root.Value;
                         }
-                        catch (InvalidOperationException e)
+                        catch (InvalidOperationException)
                         {
-                            parameterValueNode.InnerXml = "Nor Serializable";
+                            parameterValueNode.InnerXml = "Not Serializable";
                         }
                     }
                 }

@@ -20,20 +20,22 @@ namespace ProcessingServer.Configuration
 
         private static IContainer Init()
         {
+            // Uncomment lines if to use Castle.DynamicProxy.
+
             var builder = new ContainerBuilder();
             builder.RegisterType<Server>().AsSelf();
             builder.RegisterType<BytesMessagesService>().As<IBytesMessagesService>();
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .Except<FileImagePersistenceService>()
-                .Except<StatusUpdateService>()
+                //.Except<StatusUpdateService>()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 
-            var proxyGenerator = new ProxyGenerator();
-            builder.RegisterType<StatusUpdateService>().Named<IStatusUpdateService>("statusUpdateService");
-            builder.RegisterType<LoggingInterceptor>().AsSelf();
-            builder.RegisterType<MethodExecutionLogger>().AsImplementedInterfaces();
-            builder.RegisterDecorator<IStatusUpdateService>((c, inner) => proxyGenerator.CreateInterfaceProxyWithTarget(inner, c.Resolve<LoggingInterceptor>()), "statusUpdateService");
+            //var proxyGenerator = new ProxyGenerator();
+            //builder.RegisterType<StatusUpdateService>().Named<IStatusUpdateService>("statusUpdateService");
+            //builder.RegisterType<LoggingInterceptor>().AsSelf();
+            //builder.RegisterType<MethodExecutionLogger>().AsImplementedInterfaces();
+            //builder.RegisterDecorator<IStatusUpdateService>((c, inner) => proxyGenerator.CreateInterfaceProxyWithTarget(inner, c.Resolve<LoggingInterceptor>()), "statusUpdateService");
 
             var container = builder.Build();
             return container;

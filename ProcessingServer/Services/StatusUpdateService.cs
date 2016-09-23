@@ -1,10 +1,12 @@
 ﻿using System.Messaging;
+using Common.PostSharp;
 using Core.Data;
 using Core.Messages;
 using ProcessingServer.Configuration;
 
 namespace ProcessingServer.Services
 {
+    [LoggingAspect]
     internal class StatusUpdateService : IStatusUpdateService
     {
         private readonly IConfigurationProvider _configurationProvider;
