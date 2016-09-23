@@ -2,7 +2,7 @@
 
 namespace ProcessingServer.Services
 {
-    internal interface IStatusUpdateService
+    public interface IStatusUpdateService
     {
         void UpdateStatus(StatusType statusType, string additionalInfo = null);
     }
